@@ -5,8 +5,9 @@ import PrefixBinary from './ConvertBinary/PrefixBinary.js';
 import StartIp from './ipChecker/StartIp.js';
 import EndIp from './ipChecker/EndIp.js';
 import PrefixDecimal from './ConvertBinary/PrefixDecimal.js';
-import UsableIp from './ipChecker/UsableIp.js';
+import UsableIpRange from './ipChecker/UsableIpRange.js';
 import TotalHosts from './ipChecker/TotalHosts.js';
+import TotalUsableHosts from './ipChecker/TotalUsableHosts.js';
 
 const getHosts = (e) => {
     e.preventDefault();
@@ -18,9 +19,9 @@ const getHosts = (e) => {
             NetworkAddress: StartIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)),
             BroadcastAddress: EndIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)),
             SubnetMask: PrefixDecimal(tmpSubnet),
-            UsableHostIpRange: UsableIp(tmpIp, tmpSubnet),
-            TotalNumberOfHosts: TotalHosts(),
-            TotalNumberOfUsableHosts: ""
+            UsableHostIpRange: UsableIpRange(tmpIp, tmpSubnet),
+            TotalNumberOfHosts: TotalHosts(tmpSubnet),
+            TotalNumberOfUsableHosts: TotalUsableHosts(tmpSubnet)
         })
     }
 }

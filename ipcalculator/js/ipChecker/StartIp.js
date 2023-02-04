@@ -3,8 +3,6 @@ import DecimalBinary from "../ConvertBinary/DecimalBinary.js";
 const StartIp = (tmpIp, tmpSubnet) => {
     const ip = tmpIp;
     const subnet = tmpSubnet;
-    console.log(`ip: ${tmpIp} subnet: ${tmpSubnet}`)
-    console.log(ip)
     let startBinaryIp = [];
     for(let i = 0 ; i < 4 ; i++) {
         let tmpStartBinaryIp = [];

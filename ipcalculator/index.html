@@ -8,7 +8,7 @@
 </head>
 <body>
     <form>
-        <input type="text" placeholder="input ip address" id="ip" required>
+        <input type="text" placeholder="input ip address" id="ip" value="192.168.20.221" required>
         <select id="subnet">
             <option disabled>select subnet mask / prefix</option>
             <option value="9">9</option>
@@ -37,7 +37,12 @@
         </select>
         <button id="getHosts">search</button>
     </form>
+    <form>
+        <input type="text" placeholder="input ip address" id="ip2" value="192.133.11.2" required>
+        <input type="text" placeholder="how many hosts do you want" id="hosts" value="3500" required>
+        <button id="returnSubnet">search</button>
+    </form>
 </body>
-<script type="module" src="./js/returnHosts.js" value="192.168.10.0"></script>
-<script type="module" src="./js/ConvertBinary/DecimalBinary.js"></script>
+<script type="module" src="./js/returnHosts.js"></script>
+<script type="module" src="./js/returnSubnet.js"></script>
 </html>

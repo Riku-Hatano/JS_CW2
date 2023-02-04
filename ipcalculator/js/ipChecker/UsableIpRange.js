@@ -3,7 +3,7 @@ import EndIp from "./EndIp.js";
 import DecimalBinary from "../ConvertBinary/DecimalBinary.js";
 import PrefixBinary from "../ConvertBinary/PrefixBinary.js";
 
-const UsableIp = (tmpIp, tmpSubnet) => {
+const UsableIpRange = (tmpIp, tmpSubnet) => {
     let startIp = StartIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)).split(".");
     let endIp = EndIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)).split(".");
     for(let i = 0 ; i < startIp.length ; i++) {
@@ -22,4 +22,4 @@ const UsableIp = (tmpIp, tmpSubnet) => {
     }
     return `${startIp} ~ ${endIp}`;
 }
-export default UsableIp;
+export default UsableIpRange;
