@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cw2</title>
+    <style>
+        .tr {
+            background-color: gainsboro;
+        }
+        .tr:hover {
+            background-color: teal;
+        }
+        .selected {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="name" id="name" required>
+        <input type="number" placeholder="price" id="price" required>
+        <input type="number" placeholder="amount" id="amount" required>
+        <button type="submit" id="add">add</button>
+        <button type="submit" id="delete">delete</button>
+        <button type="submit" id="edit">edit</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>id</td>
+                <td>name</td>
+                <td>price</td>
+                <td>amount</td>
+                <td>total</td>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+        <tfoot>
+            <tr>
+                <td id="totalPrice" colspan="5"></td>
+            </tr>
+        </tfoot>
+    </table>
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
