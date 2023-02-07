@@ -29,10 +29,14 @@ const BlockSize = (tmpIp, tmpSubnet) => {
         let separatedIp = tmpIp.split(".");
         separatedIp[interesting] = bsCount.toString();
         separatedIp = separatedIp.join(".");
-        console.log(UsableIpRange(separatedIp, tmpSubnet))
         returnIPs.push(UsableIpRange(separatedIp, tmpSubnet))
     }
+    returnIPs.unshift(returnIPs[returnIPs.length - 1])
+    returnIPs.pop();
     return returnIPs
 }
 
 export default BlockSize;
+
+
+//

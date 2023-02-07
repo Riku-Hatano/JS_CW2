@@ -1,5 +1,5 @@
 const DecimalBinary = (num) => {
-    if(typeof(num) !== "string") {
+    if(typeof(num) !== "string") { //if this function receive array, it will return the string of decimal value.
         let returnDecimal = [];
         for(let i = 0 ; i < 4 ; i++) {
             let tmpDecimal = 0;
@@ -12,7 +12,7 @@ const DecimalBinary = (num) => {
         }
         returnDecimal = returnDecimal.join(".");
         return returnDecimal;
-    } else {
+    } else { // if this function receive string, this will return the array of binary.
         let tmpDecimal = num.split(".");
         let returnBinary = [];
         for(let i = 0 ; i < tmpDecimal.length ; i++) {

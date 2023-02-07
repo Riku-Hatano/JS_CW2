@@ -8,6 +8,7 @@ import PrefixDecimal from './ConvertBinary/PrefixDecimal.js';
 import UsableIpRange from './ipChecker/UsableIpRange.js';
 import TotalHosts from './ipChecker/TotalHosts.js';
 import TotalUsableHosts from './ipChecker/TotalUsableHosts.js';
+import BlockSize from './ipChecker/BlockSize.js';
 
 const getHosts = (e) => {
     e.preventDefault();
@@ -21,7 +22,8 @@ const getHosts = (e) => {
             SubnetMask: PrefixDecimal(tmpSubnet),
             UsableHostIpRange: UsableIpRange(tmpIp, tmpSubnet),
             TotalNumberOfHosts: TotalHosts(tmpSubnet),
-            TotalNumberOfUsableHosts: TotalUsableHosts(tmpSubnet)
+            TotalNumberOfUsableHosts: TotalUsableHosts(tmpSubnet),
+            PossibleIPs: BlockSize(tmpIp, tmpSubnet)
         })
     }
 }
