@@ -37,6 +37,3 @@ const BlockSize = (tmpIp, tmpSubnet) => {
 }
 
 export default BlockSize;
-
-
-//
