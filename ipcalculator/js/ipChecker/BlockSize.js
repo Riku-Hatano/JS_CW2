@@ -2,9 +2,9 @@ import PrefixDecimal from "../ConvertBinary/PrefixDecimal.js";
 import UsableIpRange from "./UsableIpRange.js";
 
 const BlockSize = (tmpIp, tmpSubnet) => {
-    if(tmpSubnet == "8" || tmpSubnet == "16" || tmpSubnet == "24") {
-        return false;
-    }
+    // if(tmpSubnet == "8" || tmpSubnet == "16" || tmpSubnet == "24") {
+    //     return false;
+    // }
     const returnIPs = [];
     let bs = 0;
     let bsCount = 0;

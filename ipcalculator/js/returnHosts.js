@@ -9,6 +9,7 @@ import UsableIpRange from './ipChecker/UsableIpRange.js';
 import TotalHosts from './ipChecker/TotalHosts.js';
 import TotalUsableHosts from './ipChecker/TotalUsableHosts.js';
 import BlockSize from './ipChecker/BlockSize.js';
+import createDom from './createDom.js';
 
 const getHosts = (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ const getHosts = (e) => {
     const tmpSubnet = document.getElementById("subnet").value;
     //tmpip and tmpsubnet is string.
     if(IpException(tmpIp) == true && SubnetExceeption(tmpSubnet) == true) {
-        console.log({
+        let returns = ({
             NetworkAddress: StartIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)),
             BroadcastAddress: EndIp(DecimalBinary(tmpIp), PrefixBinary(tmpSubnet)),
             SubnetMask: PrefixDecimal(tmpSubnet),
@@ -25,6 +26,7 @@ const getHosts = (e) => {
             TotalNumberOfUsableHosts: TotalUsableHosts(tmpSubnet),
             PossibleIPs: BlockSize(tmpIp, tmpSubnet)
         })
+        createDom(returns)
     }
 }
 

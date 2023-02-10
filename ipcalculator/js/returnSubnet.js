@@ -8,6 +8,7 @@ import PrefixDecimal from "./ConvertBinary/PrefixDecimal.js";
 import UsableIpRange from "./ipChecker/UsableIpRange.js";
 import BlockSize from "./ipChecker/BlockSize.js";
 
+
 const returnSubnet = (e) => {
     e.preventDefault();
     const tmpIp = document.getElementById("ip2").value; 

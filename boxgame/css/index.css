@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    background-color: gainsboro;
+}
+
+#player {
+    width: 20px;
+    height: 20px;
+    position: inherit;
+    background-color: orange;
+}
+
+.seed {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    position: absolute;
+}
