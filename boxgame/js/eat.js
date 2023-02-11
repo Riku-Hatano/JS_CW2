@@ -1,35 +1,41 @@
-import seed from "./seed.js";
-const eat = (playerPoint, moveCell, direction, seedPoint, playerSize, seedSize) => {
+const eat = (direction, player, seed) => {
     switch(direction) {
         case "right":
-            if(playerPoint.x + playerSize > seedPoint.x) {
-                console.log("hit!!! right");
-                seed();
+            if(player.x + player.getSize() + player.moveSpeed > seed.x) {
+                if(player.y < seed.y && seed.y < player.y + player.getSize() == true || player.y < seed.y + seed.width && seed.y + seed.width < player.y + player.getSize()) {
+                    afterEat(player, seed);
+                }
             }
-            return {x: playerPoint.x += moveCell, y: playerPoint.y}
+            return {x: player.x += player.moveSpeed, y: player.y}
         case "down":
-            if(playerPoint.y + playerSize > seedPoint.y) {
-                console.log("hit!!! down");
-                seed();
+            if(player.y + player.getSize() + player.moveSpeed > seed.y) {
+                if(player.x < seed.x && seed.x < player.x + player.getSize() == true || player.x < seed.x + seed.width && seed.x + seed.width < player.x + player.getSize()) {
+                    afterEat(player, seed);
+                }
             }
-            return {x: playerPoint.x, y: playerPoint.y += moveCell}
+            return {x: player.x, y: player.y += player.moveSpeed}
         case "left":
-            if(playerPoint.x - playerSize < seedPoint.x + seedSize) {
-                console.log("hit!!! left");
-                seed();
+            if(player.x - player.moveSpeed < seed.x + seed.width) {
+                if(player.y < seed.y && seed.y < player.y + player.getSize() == true || player.y < seed.y + seed.width && seed.y + seed.width < player.y + player.getSize()) {
+                    afterEat(player, seed);
+                }
             }
-            return {x: playerPoint.x -= moveCell, y: playerPoint.y}
+            return {x: player.x -= player.moveSpeed, y: player.y}
         case "up":
-            if(playerPoint.y < seedPoint.y + seedSize) {
-                console.log("hit!!! up");
-                seed();
+            if(player.y - player.moveSpeed < seed.y + seed.width) {
+                if(player.x < seed.x && seed.x < player.x + player.getSize() == true || player.x < seed.x + seed.width && seed.x + seed.width < player.x + player.getSize()) {
+                    afterEat(player, seed);
+                }
             }
-            return {x: playerPoint.x, y: playerPoint.y -= moveCell}
+            return {x: player.x, y: player.y -= player.moveSpeed}
     }
-    // return {
-    //     x: playerPoint.x += moveCell,
-    //     y: playerPoint.y += moveCell
-    // }
+}
+
+const afterEat = (player, seed) => {
+    seed.createSeed(false);
+    player.eatCount++;
+    $("#player").css("width", player.getSize());
+    $("#player").css("height", player.getSize());
 }
 
 export default eat;

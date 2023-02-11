@@ -5,21 +5,33 @@ class seedClass {
         this.x = x;
         this.y = y;
     }
-    createSeed() {
-        const seedElement = $("<div></div>");
-        // const x = Math.floor(Math.random() * 600);
-        // const y = Math.floor(Math.random() * 200);
-        this.x = 105;
-        this.y = 105;
-        console.log(`x: ${this.x} y: ${this.y}`)
-        seedElement.css({"left": `${this.x}px`});
-        seedElement.css({"top": `${this.y}px`});
-        seedElement.addClass("seed");
-    
-        $("section").append(seedElement);
-        return {
-            x: x,
-            y: y
+    createSeed(bool) {
+        switch(bool) {
+            case true:
+                const seedElement = $("<div></div>");
+                // this.x = Math.floor(Math.random() * 600);
+                // this.y = Math.floor(Math.random() * 200);
+                this.x = 55;
+                this.y = 55;
+                console.log(`x: ${this.x} y: ${this.y}`)
+                seedElement.css({"left": `${this.x}px`});
+                seedElement.css({"top": `${this.y}px`});
+                seedElement.addClass("seed");
+            
+                $("section").append(seedElement);
+                return {
+                    x: this.x,
+                    y: this.y
+                }
+            case false:
+                this.x = Math.floor(Math.random() * 100);
+                this.y = Math.floor(Math.random() * 100);
+                $(".seed").css({"left": `${this.x}px`});
+                $(".seed").css({"top": `${this.y}px`});
+                return {
+                    x: this.x,
+                    y: this.y
+                }
         }
     }
 }

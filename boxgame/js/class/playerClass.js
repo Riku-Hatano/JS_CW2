@@ -1,17 +1,18 @@
 class playerClass {
     constructor(width, height, x, y, eatCount, moveSpeed, playerBigger) {
-        this.width = width;
-        this.height = height;
+        this.width = parseFloat(width);
+        this.height = parseFloat(height);
+        this.size = this.width + (this.eatCount * this.playerBigger)
         this.x = x;
         this.y = y;
-        this.eatCount = eatCount;
-        this.moveSpeed = moveSpeed;
-        this.playerBigger = playerBigger;
+        this.eatCount = parseInt(eatCount);
+        this.moveSpeed = parseFloat(moveSpeed);
+        this.playerBigger = parseFloat(playerBigger);
     }
-    size() {
+    getSize() {
         return this.width + (this.eatCount * this.playerBigger);
     }
-    point() {
+    getPoint() {
         return {
             x: this.x,
             y: this.y
