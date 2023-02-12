@@ -3,16 +3,14 @@ const timer = (seconds) => {
     const body = $("body");
     const timerModal = $("<div></div>");
     timerModal.addClass("timerModal");
-    timerModal.text(seconds);
+    timerModal.text(`${Math.floor(seconds / 60)} min ${seconds % 60} sec`)
     body.append(timerModal);
 
     const timer = setInterval(() => {
         if(seconds > 1) {
             seconds--;
-            timerModal.text(seconds);
+            timerModal.text(`${Math.floor(seconds / 60)} min ${seconds % 60} sec`)
         } else {
-            timerModal.text("game over");
-            console.log("still running");
             clearInterval(timer);
             flagHandler();
         }

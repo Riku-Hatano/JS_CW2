@@ -12,17 +12,20 @@ body {
 section {
     position: relative;
     background-color: gainsboro;
+    overflow: hidden;
 }
 
 #player {
     width: 20px;
     height: 20px;
     margin: 0;
+    /* border-radius: 50%; */
     position: inherit;
     background-color: orange;
 }
 
 .seed {
+    /* border-radius: 50%; */
     background-color: green;
     position: absolute;
 }

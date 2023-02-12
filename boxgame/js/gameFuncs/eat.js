@@ -1,4 +1,5 @@
 import gameover from "../modals/gameover.js";
+import { info } from "../info.js";
 
 const eat = (direction, player, seed) => {
     switch(direction) {
@@ -42,11 +43,11 @@ const eat = (direction, player, seed) => {
 }
 
 const afterEat = (player, seed) => {
-    seed.createSeed(false, player);
     player.eatCount++;
     $("#player").css("width", `${player.getSize()}px`);
     $("#player").css("height", `${player.getSize()}px`);
-    if(player.eatCount > 2) {
+    seed.createSeed(false, player);
+    if(player.eatCount > info.maxEat) {
         gameover(player, seed, true);
         return;
     }

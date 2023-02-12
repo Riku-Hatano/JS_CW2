@@ -1,5 +1,4 @@
 import move from "../gameFuncs/move.js";
-import { flagHandler } from "../index.js";
 
 const gameover = (player, seed, bool) => {
     player.x = 0;
@@ -21,6 +20,7 @@ const gameover = (player, seed, bool) => {
     const overModal = $("<div></div>");
     const overModalChildren = $("<div>restart</div>");
     const msg = $("<div></div>");
+    msg.addClass("overModalChildren");
     if(bool) {
         msg.text("done");
     } else {
@@ -35,8 +35,6 @@ const gameover = (player, seed, bool) => {
     overModal.append(overModalChildren);
     overModal.append(msg)
     body.append(overModal);
-
-    // flagHandler();
 }
 
 export default gameover;

@@ -1,4 +1,4 @@
-import { info } from "../gameFuncs/move.js";
+import { info } from "../info.js";
 
 class seedClass {
     constructor(width, height, x, y) {
@@ -8,11 +8,23 @@ class seedClass {
         this.y = y;
     }
     createSeed(bool, player) {
+        let tmpX;
+        let tmpY
         switch(bool) {
             case true:
                 const seedElement = $("<div></div>");
-                // this.x = Math.floor(Math.random() * 600);
-                // this.y = Math.floor(Math.random() * 200);
+                // tmpX = Math.floor(Math.random() * (info.section.width - info.player.getSize() - this.width));
+                // tmpY = Math.floor(Math.random() * (info.section.height - info.player.getSize() - this.height));
+                // if(tmpX < info.player.x) {
+                //     this.x = tmpX
+                // } else {
+                //     this.x = tmpX + info.player.getSize();
+                // }
+                // if(tmpY < info.player.y) {
+                //     this.y = tmpY;
+                // } else {
+                //     this.y = tmpY + info.player.getSize();
+                // }
                 this.x = 55;
                 this.y = 55;
                 console.log(`x: ${this.x} y: ${this.y}`);
@@ -28,15 +40,13 @@ class seedClass {
                     y: this.y
                 }
             case false:
-                // this.x = Math.floor(Math.random() * (200 - this.width));
-                const tmpX = Math.floor(Math.random() * (info.sectionWidth - player.getSize() - this.width));
-                const tmpY = Math.floor(Math.random() * (info.sectionHeight - player.getSize() - this.height));
+                tmpX = Math.floor(Math.random() * (info.section.width - player.getSize() - this.width));
+                tmpY = Math.floor(Math.random() * (info.section.height - player.getSize() - this.height));
                 if(tmpX < player.x) {
                     this.x = tmpX
                 } else {
                     this.x = tmpX + player.getSize();
                 }
-                // this.y = Math.floor(Math.random() * (200 - this.height));
                 if(tmpY < player.y) {
                     this.y = tmpY;
                 } else {
