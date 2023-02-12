@@ -1,3 +1,5 @@
+import { info } from "../gameFuncs/move.js";
+
 class seedClass {
     constructor(width, height, x, y) {
         this.width = width;
@@ -13,7 +15,7 @@ class seedClass {
                 // this.y = Math.floor(Math.random() * 200);
                 this.x = 55;
                 this.y = 55;
-                console.log(`x: ${this.x} y: ${this.y}`)
+                console.log(`x: ${this.x} y: ${this.y}`);
                 seedElement.css({"left": `${this.x}px`});
                 seedElement.css({"top": `${this.y}px`});
                 seedElement.css({"width": `${this.width}px`});
@@ -27,8 +29,8 @@ class seedClass {
                 }
             case false:
                 // this.x = Math.floor(Math.random() * (200 - this.width));
-                const tmpX = Math.floor(Math.random() * (200 - player.getSize()));
-                const tmpY = Math.floor(Math.random() * (200 - player.getSize()));
+                const tmpX = Math.floor(Math.random() * (info.sectionWidth - player.getSize() - this.width));
+                const tmpY = Math.floor(Math.random() * (info.sectionHeight - player.getSize() - this.height));
                 if(tmpX < player.x) {
                     this.x = tmpX
                 } else {

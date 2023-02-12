@@ -1,7 +1,6 @@
 import seedClass from "../class/seedClass.js";
 import playerClass from "../class/playerClass.js";
 import eat from "./eat.js";
-import returnInfo from "../returnInfo.js";
 
 export let info = {
     player: new playerClass(20, 20, 0, 0, 0, 10, 10), //width, height, x, y, eatCount, moveSpeed, playerBigger

@@ -18,10 +18,10 @@ $(".readyModalChildren").click((e) => {
             timer(200);
             break;
         case "NORMAL":
-            timer(2);
+            timer(400);
             break;
         case "HELL":
-            timer(2);
+            timer(600);
             break;
     }
     document.addEventListener("keydown", move);
