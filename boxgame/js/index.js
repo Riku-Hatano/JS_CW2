@@ -1,37 +1,35 @@
-import eat from "./eat.js";
+import eat from "./gameFuncs/eat.js";
 import playerClass from "./class/playerClass.js";
-import seedClass from "./class/seedClass.js";
+import move from "./gameFuncs/move.js";
+import gameready from "./modals/gameready.js";
+import gameover from "./modals/gameover.js";
+import timer from "./modals/timer.js";
+import { info } from "./gameFuncs/move.js";
+// import { initializeGame } from "./gameFuncs/move.js";
+// import returnInfo from "./returnInfo.js";
 
-let player = new playerClass(20, 20, 0, 0, 0, 10, 10); //width, height, x, y, eatCount, moveSpeed, playerBigger
-let seed = new seedClass(10, 10, 0, 0); //width, height, x, y
-const playerElement = $("#player");
-seed.createSeed(true);
-
-const move = (e) => {
-    switch(e.keyCode) {
-        case 37:
-            playerElement.animate({"left": `-=${player.moveSpeed}px`}, 0, 1);
-            eat("left", player, seed);
-            console.log({x:player.x, y:player.y})
+$("section").hide();
+gameready();
+$(".readyModalChildren").click((e) => {
+    $(".readyModal").hide();
+    $("section").show();
+    switch(e.target.innerHTML) {
+        case "EASY":
+            timer(200);
             break;
-        case 38:
-            playerElement.animate({"top": `-=${player.moveSpeed}px`}, 0, 1);
-            eat("up", player, seed);
-            console.log({x:player.x, y:player.y})
+        case "NORMAL":
+            timer(2);
             break;
-        case 39:
-            playerElement.animate({"left": `+=${player.moveSpeed}px`}, 0, 1);
-            eat("right", player, seed);
-            console.log({x:player.x, y:player.y})
+        case "HELL":
+            timer(2);
             break;
-        case 40:
-            playerElement.animate({"top": `+=${player.moveSpeed}px`}, 0, 1);
-            eat("down", player, seed);
-            console.log({x:player.x, y:player.y})
-            break;
-        default:
-            console.log("illegal key");
     }
-}
+    document.addEventListener("keydown", move);
+})
 
-document.addEventListener("keydown", move);
+export const flagHandler = () => {
+    console.log(info.player, info.seed);
+    gameover(info.player, info.seed, false);
+    $(".readyModal").show();
+    $("section").hide();
+}

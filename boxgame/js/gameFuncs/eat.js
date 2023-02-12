@@ -1,41 +1,55 @@
+import gameover from "../modals/gameover.js";
+
 const eat = (direction, player, seed) => {
     switch(direction) {
         case "right":
-            if(player.x + player.getSize() + player.moveSpeed > seed.x) {
+            player.x += player.moveSpeed;
+            if(player.x < seed.x && seed.x < player.x + player.getSize() == true) {
                 if(player.y < seed.y && seed.y < player.y + player.getSize() == true || player.y < seed.y + seed.width && seed.y + seed.width < player.y + player.getSize()) {
                     afterEat(player, seed);
+                    return;
                 }
             }
-            return {x: player.x += player.moveSpeed, y: player.y}
+            return {x: player.x, y: player.y}
         case "down":
-            if(player.y + player.getSize() + player.moveSpeed > seed.y) {
+            player.y += player.moveSpeed;
+            if(player.y < seed.y && seed.y < player.y + player.getSize() == true) {
                 if(player.x < seed.x && seed.x < player.x + player.getSize() == true || player.x < seed.x + seed.width && seed.x + seed.width < player.x + player.getSize()) {
                     afterEat(player, seed);
+                    return;
                 }
             }
-            return {x: player.x, y: player.y += player.moveSpeed}
+            return {x: player.x, y: player.y}
         case "left":
-            if(player.x - player.moveSpeed < seed.x + seed.width) {
+            player.x -= player.moveSpeed;
+            if(player.x < seed.x + seed.width && seed.x + seed.width < player.x + player.getSize()) {
                 if(player.y < seed.y && seed.y < player.y + player.getSize() == true || player.y < seed.y + seed.width && seed.y + seed.width < player.y + player.getSize()) {
                     afterEat(player, seed);
+                    return;
                 }
             }
-            return {x: player.x -= player.moveSpeed, y: player.y}
+            return {x: player.x, y: player.y}
         case "up":
-            if(player.y - player.moveSpeed < seed.y + seed.width) {
+            player.y -= player.moveSpeed;
+            if(player.y < seed.y + seed.width && seed.y + seed.width < player.y + player.getSize()) {
                 if(player.x < seed.x && seed.x < player.x + player.getSize() == true || player.x < seed.x + seed.width && seed.x + seed.width < player.x + player.getSize()) {
                     afterEat(player, seed);
+                    return;
                 }
             }
-            return {x: player.x, y: player.y -= player.moveSpeed}
+            return {x: player.x, y: player.y}
     }
 }
 
 const afterEat = (player, seed) => {
-    seed.createSeed(false);
+    seed.createSeed(false, player);
     player.eatCount++;
-    $("#player").css("width", player.getSize());
-    $("#player").css("height", player.getSize());
+    $("#player").css("width", `${player.getSize()}px`);
+    $("#player").css("height", `${player.getSize()}px`);
+    if(player.eatCount > 2) {
+        gameover(player, seed, true);
+        return;
+    }
 }
 
 export default eat;

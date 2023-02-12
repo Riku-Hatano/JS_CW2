@@ -2,7 +2,7 @@ class playerClass {
     constructor(width, height, x, y, eatCount, moveSpeed, playerBigger) {
         this.width = parseFloat(width);
         this.height = parseFloat(height);
-        this.size = this.width + (this.eatCount * this.playerBigger)
+        // this.size = this.width + (this.eatCount * this.playerBigger)
         this.x = x;
         this.y = y;
         this.eatCount = parseInt(eatCount);
