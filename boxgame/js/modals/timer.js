@@ -1,4 +1,5 @@
-import { flagHandler } from "../index.js"
+import gameover from "./gameover.js";
+
 const timer = (seconds) => {
     const body = $("body");
     const timerModal = $("<div></div>");
@@ -12,7 +13,7 @@ const timer = (seconds) => {
             timerModal.text(`${Math.floor(seconds / 60)} min ${seconds % 60} sec`)
         } else {
             clearInterval(timer);
-            flagHandler();
+            gameover(false);
         }
     }, 1000);
     

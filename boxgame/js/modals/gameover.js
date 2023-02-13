@@ -1,16 +1,20 @@
 import move from "../gameFuncs/move.js";
+import { info } from "../info.js";
+import { mouse } from "../animation/playerAnimation.js";
 
-const gameover = (player, seed, bool) => {
-    player.x = 0;
-    player.y = 0;
-    player.eatCount = 0;
+const gameover = (bool) => {//get true if eatCount is greater than maxEat. get false time is over.
+    info.player.x = 0;
+    info.player.y = 0;
+    info.player.eatCount = 0;
+    info.currentKey = "right";
+    mouse();
 
     $(".seed").remove();
-    seed.createSeed(true);
+    info.seed.createSeed(true);
     $("#player").css({"left": 0});
     $("#player").css({"top": 0});
-    $("#player").css("width", player.getSize());
-    $("#player").css("height", player.getSize());
+    $("#player").css("width", info.player.getSize());
+    $("#player").css("height", info.player.getSize());
     document.removeEventListener("keydown", move);
 
     $(".timerModal").remove();
