@@ -22,9 +22,9 @@ const gameover = (player, seed, bool) => {
     const msg = $("<div></div>");
     msg.addClass("overModalChildren");
     if(bool) {
-        msg.text("done");
+        msg.text("Clear!!");
     } else {
-        msg.text("fail");
+        msg.text("Failed..");
     }
     overModal.addClass("overModal");
     overModalChildren.addClass("overModalChildren");

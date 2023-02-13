@@ -1,7 +1,7 @@
 const gameready = () => {
     const readyModal = $("<div></div>");
     const body = $("body");
-    const difficulities = ["EASY", "NORMAL", "HELL"];
+    const difficulities = ["EASY", "NORMAL", "HARD"];
     for(let difficulity of difficulities) {
         let child = $(`<div>${difficulity}</div>`);
         child.addClass("readyModalChildren");

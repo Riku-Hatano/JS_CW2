@@ -6,6 +6,8 @@ import move from "./gameFuncs/move.js";
 
 
 $("section").hide();
+$("#player").css("width", `${info.player.width}px`);
+$("#player").css("height", `${info.player.height}px`);
 gameready();
 $(".readyModalChildren").click((e) => {
     $(".readyModal").hide();
@@ -17,7 +19,7 @@ $(".readyModalChildren").click((e) => {
         case "NORMAL":
             timer(info.difficulity.normal);
             break;
-        case "HELL":
+        case "HARD":
             timer(info.difficulity.hard);
             break;
     }

@@ -1,7 +1,7 @@
 .readyModal {
-    width: 200px;
+    width: 600px;
     height: 200px;
-    background-color: gray;
+    background-color: gainsboro;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -10,16 +10,20 @@
 }
 
 .readyModalChildren {
+    padding: 2%;
     background-color: white;
+    width: 60%;
+    text-align: center;
 }
 .readyModalChildren:hover {
-    background-color: teal;
+    background-color: gray;
+    color: white;
 }
 
 .overModal {
-    width: 200px;
+    width: 600px;
     height: 200px;
-    background-color: teal;
+    background-color: gainsboro;
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -27,13 +31,14 @@
     align-items: center;
 }
 .overModalChildren {
-    display: flex;
-    justify-content: center;
-    color: white;
+    padding: 2%;
+    background-color: white;
+    width: 60%;
+    text-align: center;
 }
 .overModalChildren:hover {
-    background-color: white;
-    color: teal;
+    background-color: gray;
+    color: white;
 }
 
 .timerModal {
